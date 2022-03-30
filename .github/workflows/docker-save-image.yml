@@ -21,4 +21,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: test-app:v0.1.0
+          tags: ghcr.io/maciej-zieniewicz/test-app:v0.1.2
