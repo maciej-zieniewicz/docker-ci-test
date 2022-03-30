@@ -1,0 +1,24 @@
+name: Use the Composite Action with Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Do anything elsee
+        run: echo Pretend to do other things 
+
+      # Uses the Composite Action
+      - name: Build and Push the image
+        uses: n3wt0n/CompositeAction@main
+        with:
+          registry: ghcr.io
+          registry_username: ${{secrets.DOCKER_REGISTRY_USERNAME}}
+          registry_password: ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+          image_name: test-app
+          tag: $v0.1.1
